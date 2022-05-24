@@ -7,9 +7,18 @@ Instruction
 Create a function named multiplicationTable that receives a number maxValue as input and creates a square multiplication table where maxValue is the largest value in the table.
 */
 
-Input
+
 const multiplicationTable = function(maxValue) {
-  // Your code here
+  let result = 0;
+  let breakSpace = "\n";
+  for (let x = 1; x <= maxValue; x++) {
+    for (let y = 1; y <= maxValue; y++) {
+      result += x * y;
+      result += " ";
+    }
+    result += breakSpace;
+  }
+  return result;
 };
 
 console.log(multiplicationTable(1));
@@ -22,6 +31,7 @@ console.log(multiplicationTable(5));
 // 4 8 12 16 20
 // 5 10 15 20 25 
 
+
 console.log(multiplicationTable(10));
 // 1 2 3 4 5 6 7 8 9 10
 // 2 4 6 8 10 12 14 16 18 20
@@ -33,3 +43,4 @@ console.log(multiplicationTable(10));
 // 8 16 24 32 40 48 56 64 72 80
 // 9 18 27 36 45 54 63 72 81 90
 // 10 20 30 40 50 60 70 80 90 100
+

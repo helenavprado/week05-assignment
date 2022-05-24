@@ -23,7 +23,56 @@ Penny (1¢)
 */
 
 const calculateChange = function(total, cash) {
-  // Your code here
+let twenty = 0;
+let ten = 0;
+let five = 0;
+let toonie = 0;
+let loonie = 0;
+let quarter = 0;
+let dime = 0;
+let nickel = 0;
+let penny = 0
+let change = cash - total;
+let newChange = change/100;
+
+if (newChange >= 20) {
+  twenty = Math.floor(newChange / 20);
+  newChange = newChange % 20;
+}
+if (newChange >= 10) {
+  ten = Math.floor(newChange / 10);
+  newChange = newChange % 10;
+}
+if (newChange >= 5) {
+  five = Math.floor(newChange /5);
+  newChange = newChange % 5;
+}
+if (newChange >= 2) {
+  toonie = Math.floor(newChange / 2);
+  newChange = newChange % 2;
+}
+if (newChange >= 1) {
+  loonie = Math.floor(newChange / 1);
+  newChange = newChange % 1;
+}
+if (newChange >= 0.25) {
+  quarter = Math.floor(newChange / 0.25);
+  newChange = newChange % 0.25;
+}
+if (newChange >= 0.10) {
+  dime = Math.floor(newChange / 0.10);
+  newChange = newChange % 0.10;
+}
+if (newChange >= 0.05) {
+  nickel = Math.floor(newChange / 0.05);
+  newChange = newChange % 0.05;
+}
+if (newChange > 0.009) { //arrendondar pra duas casas decimais
+  penny = Math.round(newChange / 0.01); 
+}
+
+return `{ten: ${ten}, one: ${loonie}, Toonie: ${toonie}, dime: ${dime}, quarter: ${quarter}, penny: ${penny}} `
+
 };
 
 console.log(calculateChange(1787, 2000)); // { twoDollar: 1, dime: 1, penny: 3 }

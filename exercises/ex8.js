@@ -5,11 +5,22 @@ The input data for this exercise will be two dimensional array (an array of arra
 The first will be the value to repeat, the second will be the amount of times to repeat that value.
 
 Instruction
-Create a function named repeatNumbers that will return a string with each of the given values repeated the appropriate number of times, if there are multiple sets of values each set should be separated by a comma. If there is only one set of values then you should omit the comma.
+Create a function named repeatNumbers that will return a string with each of the given values repeated the appropriate number of times, 
+if there are multiple sets of values each set should be separated by a comma. If there is only one set of values then you should omit the comma.
 */
 
 const repeatNumbers = function(data) {
-  // Put your solution here
+  numberString = "";
+  for (let x = 0; x < data.length; x++) {
+    for (let y = 0; y < data[x][1]; y++) {
+      numberString += data[x][0]
+    }
+    if (x < data.length - 1) {
+      numberString += ", "
+  }
+    
+  }
+  return numberString;
 };
 
 console.log(repeatNumbers([[1, 10]])); // 1111111111

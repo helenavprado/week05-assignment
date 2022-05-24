@@ -19,9 +19,24 @@ Use some sort of looping. Do Not use String.prototype.replace
 */
 
 const urlEncode = function(text) {
-    // Put your solution here
-  };
-  
+  let newString = "";
+  let result = text.trim();
+  for (let x = 0; x < result.length; x++) {
+    if (result[x] === " ") { 
+      newString += "%20";
+    } else {
+      newString += result[x];
+    }
+  }
+  return newString;
+}
+
+
   console.log(urlEncode("cornerstone college")); //cornerstone%20college
   console.log(urlEncode(" cornerstone college ")); //cornerstone%20college
-  console.log(urlEncode("blue is greener than purple for sure")); //blue%20is%20greener%20than%20purple%20for%20sure
+  console.log(urlEncode("blue is greener than purple for sure")); //blue%20is%20greener%20than%20purple%20for%20sure 
+
+
+
+
+

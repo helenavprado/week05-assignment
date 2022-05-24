@@ -8,10 +8,22 @@ Instruction
 Create a function named camelCase that will convert a string to camel case, and return the result.
 */
 
-Input
+
 const camelCase = function(input) {
-  // Your code here
+  let newString = "";
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] === " ") {
+        x++;
+        newString += input[x].toUpperCase();
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
 };
+
+
+let string = "helena prado"
 
 console.log(camelCase("this is a string")); // thisIsAString
 console.log(camelCase("loopy cornerstone")); //loopyCornerstone

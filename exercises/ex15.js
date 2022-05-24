@@ -9,8 +9,24 @@ Create a function named organizeInstructors that will receive an array of instru
 */
 
 const organizeInstructors = function(instructors) {
-  // Put your solution here
-};
+  let resultiOS = [];
+  let resultWeb = [];
+  let resultBlockchain = [];
+  
+  for (const courseX in instructors) {
+    if (instructors[courseX].course === "iOS") {
+      resultiOS.push(instructors[courseX].name);
+    } else if (instructors[courseX].course === "Web") {
+      resultWeb.push(instructors[courseX].name);
+    } else {
+      resultBlockchain.push(instructors[courseX].name);
+    }
+  }
+  return {Blockchain: resultBlockchain, Web: resultWeb, iOS: resultiOS}
+}
+
+
+
 
 console.log(organizeInstructors([
   {name: "Samuel", course: "iOS"},

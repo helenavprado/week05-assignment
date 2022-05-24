@@ -16,7 +16,104 @@ For more information on casing styles, read Wikipedia's Special Case Styles for 
 */
 
 const makeCaze = function(input, caze) {
-  // Put your solution here
+  let newString = "";
+  if (caze === "snake") {
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] === " ") {
+        newString += "_"
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "kebab") {
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] === " ") {
+        newString += "-"
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "vowel") {
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] === "a"|| input[x] === "e"|| input[x] === "i"|| input[x] === "o"|| input[x] === "u" ) {
+        newString += input[x].toUpperCase();
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "consonant") {
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] != "a" && input[x] != "e" && input[x] != "i" && input[x] != "o" && input[x] != "u" ) {
+        newString += input[x].toUpperCase();
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "camel") {
+    for (let x = 0; x < input.length; x++) {
+      if (input[x] === " ") {
+        x++;
+        newString += input[x].toUpperCase();
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "title") {
+    for (let x = 0; x < input.length; x++) {
+      if (x === 0) {
+        newString += input[x].toUpperCase();
+        x++;
+      } 
+      if (input[x-1] === " ") {
+        newString += input[x].toUpperCase();
+        } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  if (caze === "pascal") {
+    for (let x = 0; x < input.length; x++) {
+      if (x === 0) {
+        newString += input[x].toUpperCase();
+        x++;
+      }
+      if (input[x] === " ") {
+        x++;
+        newString += input[x].toUpperCase();
+      } else {
+        newString += input[x]
+      }
+    }
+    return newString;
+  }
+
+  // if (caze === ["upper", "snake"]) {
+  //   for (let x = 0; x < input.length; x++) {
+  //     if (input[x] === " ") {
+  //       newString += "_"
+  //     } else {
+  //       newString += input[x]
+  //     }
+  //   }
+  //   return newString.toUpperCase();
+  // }
 }
 
 console.log(makeCaze("this is a string", "camel")); // thisIsAString
@@ -26,5 +123,5 @@ console.log(makeCaze("this is a string", "kebab")); // this-is-a-string
 console.log(makeCaze("this is a string", "title")); // This Is A String
 console.log(makeCaze("this is a string", "vowel")); // thIs Is A strIng
 console.log(makeCaze("this is a string", "consonant")); // THiS iS a STRiNG
-console.log(makeCaze("this is a string", ["upper", "snake"])); // THIS_IS_A_STRING
+//console.log(makeCaze("this is a string", ["upper", "snake"])); // THIS_IS_A_STRING
 
